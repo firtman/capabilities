@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Cooking Masters</title>
+    <base href="/">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="app.webmanifest">
+    <link rel="apple-touch-icon" href="/images/icon-permissions.svg">
+    <link rel="icon" href="images/icon-permissions.svg">
+
+    <script src="scripts/app.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="javascript:app.router.go('/')"><img src="images/logo.svg" alt="Cooking Masters" id="logo"></a></h1>
+        <div></div>
+        <a href="javascript:app.router.go('/permissions')" id="btn-permissions"><img src="images/icon-permissions.svg"
+                alt="Permissions"></a>
+    </header>
+
+    <main>
+        <section class="page" id="home">
+            <section class="two-columns">
+                <div>
+                    <h3>Recipe of the Week</h3>
+                    <div id="recipe-week"></div>
+
+                </div>
+                <div>
+                    <h3>Most Cooked</h3>
+                    <div id="recipe-most"></div>
+
+                </div>
+            </section>
+
+
+            <section id="all">
+                <h3>All Recipes</h3>
+                <ul>
+
+                </ul>
+            </section>
+        </section>
+
+        <section class="page" id="permissions">
+            <header>
+                <section>
+                    <img src="images/permissions.svg" id="imgPermissions" alt="Permissions Icon">
+                    <h2>Permissions and Devices</h2>
+                    <p>To get the best experience for this app, enable the following permissions</p>
+                </section>
+            </header>
+
+            <table>
+                <tr id="permissionWL">
+                    <td>
+                        <h3>Wake Lock</h3>
+                    </td>
+                    <td><span></span></td>
+                    <td><button onclick="app.capabilities.wakeLock()">Request</button></td>
+                </tr>
+                <tr id="permissionMic">
+                    <td>
+                        <h3>Microphone</h3>
+                    </td>
+                    <td><span></span></td>
+                    <td><button onclick="app.capabilities.microphone()">Request</button></td>
+                </tr>
+                <tr id="permissionGP">
+                    <td>
+                        <h3>Gamepad</h3>
+                    </td>
+                    <td><span></span></td>
+                    <td></td>
+                </tr>
+                <tr id="permissionBT">
+                    <td>
+                        <h3>Bluetooth</h3>
+                    </td>
+                    <td><span></span></td>
+                    <td><button onclick="app.capabilities.bluetooth()">Request</button></td>
+
+                </tr>
+            </table>
+
+        </section>
+
+        <section class="page" id="recipe">
+            <header>
+                <section>
+                    <h2></h2>
+                    <p class="metadata"></p>
+                    <button>Start Cooking</button>
+                </section>
+                <img>
+            </header>
+
+            <section id="cooking" hidden>
+                <div>
+                    <h2></h2>
+                    <h3></h3>
+                </div>
+                <section class="status">
+                    <span id="wakelock" class="off" onclick="app.capabilities.wakeLock()">🔒</span>
+                    <span id="speech" class="off" onclick="app.capabilities.microphone()">🎙️</span>
+                    <span id="gamepad" class="off">🕹️</span>
+                    <span id="lights" class="off" onclick="app.capabilities.bluetooth()">💡</span>
+                </section>
+                <div class="step">
+                </div>
+                <section class="timers">
+                    <ul>
+                        
+                    </ul>
+                </section>
+                <section class="toolbar">
+                    <button id="btn-previous" onclick="app.cooking.previous()">Previous</button>
+                    <button id="btn-next" onclick="app.cooking.next()">Next</button>
+                </section>
+            </section>
+
+            <section>
+                <h3>Description</h3>
+                <p class="description"></p>
+
+                <h3>Ingredients</h3>
+                <dl></dl>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <img src="images/logo.svg" alt="Cooking Masters">
+            <p>This is a project for a <a href="https://frontendmasters.com" target="_blank">Frontend Masters</a>
+                workshop by <a href="https://firt.dev" target="_blank">Maximiliano Firtman</a>.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
